@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QPalette>
+
 //#include "second.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -7,7 +9,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
 }
+
 
 MainWindow::~MainWindow()
 {
