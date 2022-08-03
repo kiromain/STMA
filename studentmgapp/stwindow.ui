@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Welcome</string>
+    <string>Welcome student</string>
    </property>
   </widget>
  </widget>

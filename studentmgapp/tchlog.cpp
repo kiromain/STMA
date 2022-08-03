@@ -1,5 +1,6 @@
 #include "tchlog.h"
 #include "ui_tchlog.h"
+#include <QMessageBox>
 
 tchlog::tchlog(QWidget *parent) :
     QDialog(parent),
@@ -18,10 +19,12 @@ void tchlog::on_pushButton_2_clicked()
     QString username = ui ->lineEdit_tchuser->text();
     QString password = ui ->lineEdit_tchpass->text();
 
-    if(username == "kiromain" && password == "hoonmin24"){
+    if(username == "test" && password == "test"){
         hide();
         tchWindow = new tchwindow;
         tchWindow -> show();
+    }else{
+        QMessageBox::warning(this,"Login","Username or password is incorrect");
     }
 }
 

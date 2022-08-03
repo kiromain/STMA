@@ -20,13 +20,12 @@ void stlog::on_pushButton_clicked()
     QString username = ui->lineEdit_stuser->text();
     QString password = ui->LineEdit_stpass->text();
 
-    if(username == "kiromain" && password == "hoonmin24"){
-        QMessageBox::information(this,"Login","Username ok");
+    if(username == "test" && password == "test"){
         hide();
         stWindow = new stwindow;
-        stWindow ->show();
+        stWindow -> show();
     }else{
-        QMessageBox::warning(this,"Login","Username not ok");
+        QMessageBox::warning(this,"Login","Username or password is incorrect");
     }
 }
 
