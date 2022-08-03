@@ -11,15 +11,24 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    second.cpp
+    stlog.cpp \
+    stwindow.cpp \
+    tchlog.cpp \
+    tchwindow.cpp
 
 HEADERS += \
     mainwindow.h \
-    second.h
+    stlog.h \
+    stwindow.h \
+    tchlog.h \
+    tchwindow.h
 
 FORMS += \
     mainwindow.ui \
-    second.ui
+    stlog.ui \
+    stwindow.ui \
+    tchlog.ui \
+    tchwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

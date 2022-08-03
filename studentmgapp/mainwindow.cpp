@@ -2,8 +2,6 @@
 #include "ui_mainwindow.h"
 #include <QPalette>
 
-//#include "second.h"
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -16,16 +14,28 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+}    
+
+
+
+void MainWindow::on_StudentLog_clicked()
+{
+    hide();
+    stdial = new stlog;
+    stdial ->show();
 }
 
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_TeacherLog_clicked()
 {
-    /*second second;
-    second.setModal(true);
-    second.exec();*/
     hide();
-    secDialog = new second(this);
-    secDialog -> show();
+    tchdial = new tchlog;
+    tchdial ->show();
+}
+
+
+void MainWindow::on_Quit_clicked()
+{
+    QApplication::quit();
 }
 

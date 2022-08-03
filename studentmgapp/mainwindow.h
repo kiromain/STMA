@@ -2,10 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "second.h"
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QWidget>
+#include "stlog.h"
+#include "tchlog.h"
 
 namespace Ui { class MainWindow; }
 
@@ -16,13 +17,19 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    QGraphicsScene *scene;
 
 private slots:
-    void on_pushButton_clicked();
+
+
+    void on_StudentLog_clicked();
+
+    void on_TeacherLog_clicked();
+
+    void on_Quit_clicked();
 
 private:
     Ui::MainWindow *ui;
-    second *secDialog;
+    stlog *stdial;
+    tchlog *tchdial;
 };
 #endif // MAINWINDOW_H
