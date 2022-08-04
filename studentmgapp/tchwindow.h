@@ -17,6 +17,7 @@ public:
 
 private:
     Ui::tchwindow *ui;
+
 };
 
 #endif // TCHWINDOW_H
