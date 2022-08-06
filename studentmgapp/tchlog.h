@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "tchwindow.h"
+#include <tchwindow0.h>
 
 namespace Ui {
 class tchlog;
@@ -22,6 +23,7 @@ private slots:
 private:
     Ui::tchlog *ui;
     tchwindow *tchWindow;
+    tchwindow0 *tchWindow0;
 };
 
 #endif // TCHLOG_H

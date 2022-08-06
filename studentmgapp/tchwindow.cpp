@@ -29,8 +29,8 @@ void tchwindow::on_newfile_button_clicked()
 
 void tchwindow::on_save_button_clicked()
 {
-    QString file_name = QFileDialog::getSaveFileName(this,"Open the file");
-    QFile file(file_name);
+
+    QFile file(file_path);
     if(!file.open(QFile::WriteOnly| QFile::Text)) {
         QMessageBox::warning(this,"..","file name is wrong");
         return;
@@ -63,6 +63,7 @@ void tchwindow::on_open_button_clicked()
 {
     QString file_name = QFileDialog::getOpenFileName(this,"Open the file");
     QFile file(file_name);
+    file_path=file_name;
     if(!file.open(QFile::ReadOnly | QFile::Text)) {
         QMessageBox::warning(this,"..","file name is wrong");
         return;

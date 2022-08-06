@@ -21,8 +21,8 @@ void tchlog::on_pushButton_2_clicked()
 
     if(username == "test" && password == "test"){
         hide();
-        tchWindow = new tchwindow;
-        tchWindow -> show();
+        tchWindow0 = new tchwindow0;
+        tchWindow0 -> show();
     }else{
         QMessageBox::warning(this,"Login","Username or password is incorrect");
     }

@@ -14,21 +14,24 @@ SOURCES += \
     stlog.cpp \
     stwindow.cpp \
     tchlog.cpp \
-    tchwindow.cpp
+    tchwindow.cpp \
+    tchwindow0.cpp
 
 HEADERS += \
     mainwindow.h \
     stlog.h \
     stwindow.h \
     tchlog.h \
-    tchwindow.h
+    tchwindow.h \
+    tchwindow0.h
 
 FORMS += \
     mainwindow.ui \
     stlog.ui \
     stwindow.ui \
     tchlog.ui \
-    tchwindow.ui
+    tchwindow.ui \
+    tchwindow0.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
