@@ -1,6 +1,9 @@
 #include "tchlog.h"
 #include "ui_tchlog.h"
 #include <QMessageBox>
+#include "mainwindow.h"
+
+MainWindow *mainwindow2;
 
 tchlog::tchlog(QWidget *parent) :
     QDialog(parent),
@@ -26,5 +29,13 @@ void tchlog::on_pushButton_2_clicked()
     }else{
         QMessageBox::warning(this,"Login","Username or password is incorrect");
     }
+}
+
+
+void tchlog::on_return_button_clicked()
+{
+    hide();
+    mainwindow2 = new MainWindow;
+    mainwindow2 -> show();
 }
 

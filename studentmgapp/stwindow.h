@@ -15,6 +15,9 @@ public:
     explicit stwindow(QWidget *parent = nullptr);
     ~stwindow();
 
+private slots:
+    void on_quit_button_clicked();
+
 private:
     Ui::stwindow *ui;
 };

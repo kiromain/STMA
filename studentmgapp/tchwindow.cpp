@@ -5,6 +5,9 @@
 #include <QFileDialog>
 #include <QTextStream>
 #include <QMessageBox>
+#include "tchwindow0.h"
+
+tchwindow0 *tchWindow0;
 
 tchwindow::tchwindow(QWidget *parent) :
     QDialog(parent),
@@ -78,5 +81,13 @@ void tchwindow::on_open_button_clicked()
 void tchwindow::on_edit_button_clicked()
 {
     ui->textEdit->undo();
+}
+
+
+void tchwindow::on_return_button_clicked()
+{
+    hide();
+    tchWindow0 = new tchwindow0;
+    tchWindow0 ->show();
 }
 

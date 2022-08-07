@@ -19,6 +19,8 @@ public:
 private slots:
     void on_select_button_clicked();
 
+    void on_quit_button_clicked();
+
 private:
     Ui::tchwindow0 *ui;
     tchwindow *tchWindow;

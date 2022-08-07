@@ -1,6 +1,9 @@
 #include "tchwindow0.h"
 #include "ui_tchwindow0.h"
 #include <QString>
+#include "mainwindow.h"
+
+MainWindow *mainwindow;
 
 tchwindow0::tchwindow0(QWidget *parent) :
     QWidget(parent),
@@ -22,5 +25,13 @@ void tchwindow0::on_select_button_clicked()
     hide();
     tchWindow -> show();
 
+}
+
+
+void tchwindow0::on_quit_button_clicked()
+{
+    hide();
+    mainwindow = new MainWindow;
+    mainwindow ->show();
 }
 

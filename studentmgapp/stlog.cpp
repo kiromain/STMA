@@ -2,6 +2,9 @@
 #include "ui_stlog.h"
 #include <QString>
 #include <QMessageBox>
+#include "mainwindow.h"
+
+MainWindow *mainwindow1;
 
 stlog::stlog(QWidget *parent) :
     QDialog(parent),
@@ -27,5 +30,13 @@ void stlog::on_pushButton_clicked()
     }else{
         QMessageBox::warning(this,"Login","Username or password is incorrect");
     }
+}
+
+
+void stlog::on_return_button_clicked()
+{
+    hide();
+    mainwindow1 = new MainWindow;
+    mainwindow1 ->show();
 }
 

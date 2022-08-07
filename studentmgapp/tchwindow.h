@@ -30,6 +30,8 @@ private slots:
 
     void on_edit_button_clicked();
 
+    void on_return_button_clicked();
+
 private:
     Ui::tchwindow *ui;
     QString file_path;
