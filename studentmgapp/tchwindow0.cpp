@@ -2,8 +2,10 @@
 #include "ui_tchwindow0.h"
 #include <QString>
 #include "mainwindow.h"
+#include "tchwindow.h"
 
 MainWindow *mainwindow;
+tchwindow *tchWindow;
 
 tchwindow0::tchwindow0(QWidget *parent) :
     QWidget(parent),
@@ -17,14 +19,17 @@ tchwindow0::~tchwindow0()
     delete ui;
 }
 
+QString tchwindow0::username()
+{
+    QString username2 = ui->comboBox->currentText();
+    return username2;
+}
+
 void tchwindow0::on_select_button_clicked()
 {
-    QString username = ui->comboBox->currentText();
-
     tchWindow = new tchwindow;
     hide();
     tchWindow -> show();
-
 }
 
 

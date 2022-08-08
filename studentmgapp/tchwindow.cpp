@@ -6,6 +6,7 @@
 #include <QTextStream>
 #include <QMessageBox>
 #include "tchwindow0.h"
+#include <QDebug>
 
 tchwindow0 *tchWindow0;
 
@@ -14,7 +15,6 @@ tchwindow::tchwindow(QWidget *parent) :
     ui(new Ui::tchwindow)
 {
     ui->setupUi(this);
-
 }
 
 tchwindow::~tchwindow()
@@ -24,6 +24,7 @@ tchwindow::~tchwindow()
 
 void tchwindow::on_newfile_button_clicked()
 {
+
     file_path = "";
     ui->textEdit->setText("");
 
@@ -49,8 +50,8 @@ void tchwindow::on_save_button_clicked()
 void tchwindow::on_saveas_button_clicked()
 {
     QString file_name = QFileDialog::getSaveFileName(this,"Open the file");
-    QFile file(file_name);
-    if(!file.open(QFile::WriteOnly| QFile::Text)) {
+    QFile file(file_path);
+    if(!file.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(this,"..","file name is wrong");
         return;
     }
@@ -65,7 +66,7 @@ void tchwindow::on_saveas_button_clicked()
 void tchwindow::on_open_button_clicked()
 {
     QString file_name = QFileDialog::getOpenFileName(this,"Open the file");
-    QFile file(file_name);
+    QFile file(file_path);
     file_path=file_name;
     if(!file.open(QFile::ReadOnly | QFile::Text)) {
         QMessageBox::warning(this,"..","file name is wrong");
@@ -80,6 +81,8 @@ void tchwindow::on_open_button_clicked()
 
 void tchwindow::on_edit_button_clicked()
 {
+    username2 = new tchwindow0();
+    qDebug()<<username2;
     ui->textEdit->undo();
 }
 

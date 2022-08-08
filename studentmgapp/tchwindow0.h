@@ -2,7 +2,7 @@
 #define TCHWINDOW0_H
 
 #include <QWidget>
-#include "tchwindow.h"
+#include <QString>
 
 namespace Ui {
 class tchwindow0;
@@ -15,6 +15,7 @@ class tchwindow0 : public QWidget
 public:
     explicit tchwindow0(QWidget *parent = nullptr);
     ~tchwindow0();
+    QString username();
 
 private slots:
     void on_select_button_clicked();
@@ -23,7 +24,6 @@ private slots:
 
 private:
     Ui::tchwindow0 *ui;
-    tchwindow *tchWindow;
 };
 
 #endif // TCHWINDOW0_H

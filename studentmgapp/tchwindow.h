@@ -4,7 +4,9 @@
 #include <QDialog>
 #include <QPaintEvent>
 #include <QString>
-
+#include "tchwindow0.h"
+#include <QGraphicsScene>
+#include <QGraphicsView>
 
 namespace Ui {
 class tchwindow;
@@ -18,6 +20,7 @@ public:
     explicit tchwindow(QWidget *parent = nullptr);
     ~tchwindow();
     QPixmap _pixmapBg;
+    tchwindow0 *username2;
 
 private slots:
     void on_newfile_button_clicked();
