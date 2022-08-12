@@ -20,7 +20,7 @@ public:
     explicit tchwindow(QWidget *parent = nullptr);
     ~tchwindow();
     QPixmap _pixmapBg;
-    tchwindow0 *username2;
+    tchwindow0 *username;
 
 private slots:
     void on_newfile_button_clicked();

@@ -7,6 +7,8 @@
 #include <QMessageBox>
 #include "tchwindow0.h"
 #include <QDebug>
+#include <QTextEdit>
+#include <QDesktopServices>
 
 tchwindow0 *tchWindow0;
 
@@ -49,7 +51,12 @@ void tchwindow::on_save_button_clicked()
 
 void tchwindow::on_saveas_button_clicked()
 {
+    username = new tchwindow0;
+    QString username2 = username->username();
+    QDir(username2).exists();
+    QDir().mkdir(username2);
     QString file_name = QFileDialog::getSaveFileName(this,"Open the file");
+    file_path = file_name;
     QFile file(file_path);
     if(!file.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(this,"..","file name is wrong");
@@ -65,7 +72,11 @@ void tchwindow::on_saveas_button_clicked()
 
 void tchwindow::on_open_button_clicked()
 {
+    username = new tchwindow0;
+    QString username2 = username->username();
+    QDesktopServices::openUrl(QUrl(username2));
     QString file_name = QFileDialog::getOpenFileName(this,"Open the file");
+    //QString file_name = username2;
     QFile file(file_path);
     file_path=file_name;
     if(!file.open(QFile::ReadOnly | QFile::Text)) {
@@ -81,7 +92,8 @@ void tchwindow::on_open_button_clicked()
 
 void tchwindow::on_edit_button_clicked()
 {
-    username2 = new tchwindow0();
+    username = new tchwindow0;
+    QString username2 = username->username();
     qDebug()<<username2;
     ui->textEdit->undo();
 }
