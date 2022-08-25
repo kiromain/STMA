@@ -1,13 +1,15 @@
 #include "tchwindow.h"
 #include "ui_tchwindow.h"
+#include "tchwindow0.h"
 #include <QDialog>
 #include <QFile>
 #include <QFileDialog>
 #include <QTextStream>
 #include <QMessageBox>
-#include "tchwindow0.h"
 #include <QDebug>
 #include <QTextEdit>
+#include <QStandardPaths>
+#include <QDir>
 #include <QDesktopServices>
 
 tchwindow0 *tchWindow0;
@@ -53,10 +55,18 @@ void tchwindow::on_saveas_button_clicked()
 {
     username = new tchwindow0;
     QString username2 = username->username();
-    QDir(username2).exists();
-    QDir().mkdir(username2);
+
     QString file_name = QFileDialog::getSaveFileName(this,"Open the file");
-    file_path = file_name;
+
+    QDir dir();
+    QDir().exists();
+
+    dir.mkpath(username2);
+    QDesktopServices::openUrl(username2);
+    QString newurl3 = username2 + file_name;
+    file_path = newurl3;
+
+    qDebug()<<newurl3;
     QFile file(file_path);
     if(!file.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(this,"..","file name is wrong");
@@ -67,14 +77,15 @@ void tchwindow::on_saveas_button_clicked()
     out<<text;
     file.flush();
     file.close();
+
 }
+
 
 
 void tchwindow::on_open_button_clicked()
 {
     username = new tchwindow0;
     QString username2 = username->username();
-    QDesktopServices::openUrl(QUrl(username2));
     QString file_name = QFileDialog::getOpenFileName(this,"Open the file");
     //QString file_name = username2;
     QFile file(file_path);
