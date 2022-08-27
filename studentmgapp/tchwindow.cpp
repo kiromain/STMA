@@ -9,7 +9,7 @@
 #include <QDebug>
 #include <QTextEdit>
 #include <QStandardPaths>
-#include <QDir>
+#include <QUrl>
 #include <QDesktopServices>
 
 tchwindow0 *tchWindow0;
@@ -58,15 +58,7 @@ void tchwindow::on_saveas_button_clicked()
 
     QString file_name = QFileDialog::getSaveFileName(this,"Open the file");
 
-    QDir dir();
-    QDir().exists();
 
-    dir.mkpath(username2);
-    QDesktopServices::openUrl(username2);
-    QString newurl3 = username2 + file_name;
-    file_path = newurl3;
-
-    qDebug()<<newurl3;
     QFile file(file_path);
     if(!file.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(this,"..","file name is wrong");
@@ -87,6 +79,11 @@ void tchwindow::on_open_button_clicked()
     username = new tchwindow0;
     QString username2 = username->username();
     QString file_name = QFileDialog::getOpenFileName(this,"Open the file");
+
+    QString workingDir = qApp->applicationDirPath();
+    QString path = QString::fromLatin1("/Users/tuanhungbuivan/Desktop/STMA").arg(workingDir);
+    QDesktopServices::openUrl(QUrl(path, QUrl::TolerantMode));
+
     //QString file_name = username2;
     QFile file(file_path);
     file_path=file_name;
