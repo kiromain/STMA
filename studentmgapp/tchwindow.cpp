@@ -11,6 +11,8 @@
 #include <QStandardPaths>
 #include <QUrl>
 #include <QDesktopServices>
+#include <QDir>
+
 
 tchwindow0 *tchWindow0;
 
@@ -58,17 +60,22 @@ void tchwindow::on_saveas_button_clicked()
 
     QString file_name = QFileDialog::getSaveFileName(this,"Open the file");
 
-
-    QFile file(file_path);
-    if(!file.open(QFile::WriteOnly | QFile::Text)) {
-        QMessageBox::warning(this,"..","file name is wrong");
-        return;
+    QDir dir(username2);
+    if(!dir.exists()){
+        dir.mkpath(".");
+    }else {
+        file_path = file_name;
+        QFile file(dir.filePath(file_path));
+        if(!file.open(QFile::WriteOnly | QFile::Text)) {
+            QMessageBox::warning(this,"..","file name is wrong");
+            return;
+        }
+        QTextStream out(&file);
+        QString text = ui->textEdit->toPlainText();
+        out<<text;
+        file.flush();
+        file.close();
     }
-    QTextStream out(&file);
-    QString text = ui->textEdit->toPlainText();
-    out<<text;
-    file.flush();
-    file.close();
 
 }
 
@@ -80,21 +87,21 @@ void tchwindow::on_open_button_clicked()
     QString username2 = username->username();
     QString file_name = QFileDialog::getOpenFileName(this,"Open the file");
 
-    QString workingDir = qApp->applicationDirPath();
-    QString path = QString::fromLatin1("/Users/tuanhungbuivan/Desktop/STMA").arg(workingDir);
-    QDesktopServices::openUrl(QUrl(path, QUrl::TolerantMode));
-
     //QString file_name = username2;
-    QFile file(file_path);
-    file_path=file_name;
-    if(!file.open(QFile::ReadOnly | QFile::Text)) {
-        QMessageBox::warning(this,"..","file name is wrong");
-        return;
+    QDir dir(username2);
+    if(!dir.exists()){
+        QFile file(dir.filePath(file_path));
+        file_path=file_name;
+        if(!file.open(QFile::ReadOnly | QFile::Text)) {
+            QMessageBox::warning(this,"..","file name is wrong");
+            return;
+        }
+        QTextStream in(&file);
+        QString text = in.readAll();
+        ui->textEdit->setText(text);
+        file.close();
     }
-    QTextStream in(&file);
-    QString text = in.readAll();
-    ui->textEdit->setText(text);
-    file.close();
+
 }
 
 
@@ -109,6 +116,8 @@ void tchwindow::on_edit_button_clicked()
 
 void tchwindow::on_return_button_clicked()
 {
+
+
     hide();
     tchWindow0 = new tchwindow0;
     tchWindow0 ->show();
