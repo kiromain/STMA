@@ -3,7 +3,6 @@
 #include <QString>
 #include "mainwindow.h"
 #include "tchwindow.h"
-#include <QDebug>
 
 MainWindow *mainwindow;
 tchwindow *tchWindow;
@@ -22,13 +21,15 @@ tchwindow0::~tchwindow0()
 
 QString tchwindow0::username()
 {
-    return ui->comboBox->currentText();
+    QString picked = ui->comboBox->currentText();
+    return picked;
 }
 
 void tchwindow0::on_select_button_clicked()
 {
-    tchWindow = new tchwindow;
+
     hide();
+    tchWindow = new tchwindow;
     tchWindow -> show();
 }
 

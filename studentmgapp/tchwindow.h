@@ -21,6 +21,7 @@ public:
     ~tchwindow();
     QPixmap _pixmapBg;
     tchwindow0 *username;
+    tchwindow *path;
 
 private slots:
     void on_newfile_button_clicked();
