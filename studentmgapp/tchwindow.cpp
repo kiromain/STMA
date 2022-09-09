@@ -14,7 +14,7 @@
 #include <QDir>
 
 
-tchwindow0 *tchWindow0;
+
 
 tchwindow::tchwindow(QWidget *parent) :
     QDialog(parent),
@@ -22,12 +22,13 @@ tchwindow::tchwindow(QWidget *parent) :
 {
     ui->setupUi(this);
     username = new tchwindow0;
+    tchWindow0 = new tchwindow0;
 }
 
 tchwindow::~tchwindow()
 {
     delete ui;
-    delete username; username = nullptr;
+
 }
 
 void tchwindow::on_newfile_button_clicked()
@@ -35,7 +36,6 @@ void tchwindow::on_newfile_button_clicked()
 
     file_path = "";
     ui->textEdit->setText("");
-
 }
 
 
