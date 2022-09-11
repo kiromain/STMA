@@ -19,10 +19,11 @@ class tchwindow : public QDialog
 public:
     explicit tchwindow(QWidget *parent = nullptr);
     ~tchwindow();
-    QPixmap _pixmapBg;
+
     tchwindow0 *username;
     tchwindow *path;
     tchwindow0 *tchWindow0;
+    QString username2;
 
 private slots:
     void on_newfile_button_clicked();

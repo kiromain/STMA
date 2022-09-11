@@ -9,26 +9,20 @@
 #include <QDebug>
 #include <QTextEdit>
 #include <QStandardPaths>
-#include <QUrl>
-#include <QDesktopServices>
 #include <QDir>
-
-
-
 
 tchwindow::tchwindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::tchwindow)
 {
     ui->setupUi(this);
-    username = new tchwindow0;
-    tchWindow0 = new tchwindow0;
+    username = new tchwindow0();
+    tchWindow0 = new tchwindow0();
 }
 
 tchwindow::~tchwindow()
 {
     delete ui;
-
 }
 
 void tchwindow::on_newfile_button_clicked()
@@ -57,7 +51,8 @@ void tchwindow::on_save_button_clicked()
 
 void tchwindow::on_saveas_button_clicked()
 {
-    QString username2 = username->username();
+    username2 = username->username();
+    qDebug()<<username2;
 
     QDir dir(username2);
     if(!dir.exists()){
@@ -90,7 +85,7 @@ void tchwindow::on_saveas_button_clicked()
 void tchwindow::on_open_button_clicked()
 {
     //username = new tchwindow0;
-    QString username2 = username->username();
+    //QString username2 = username->username();
     qDebug()<<username2;
 
     QDir dir(username2);
@@ -119,7 +114,7 @@ void tchwindow::on_open_button_clicked()
 void tchwindow::on_edit_button_clicked()
 {
     //username = new tchwindow0;
-    QString username2 = username->username();
+    //QString username2 = username->username();
     qDebug()<<username2;
     ui->textEdit->undo();
 }

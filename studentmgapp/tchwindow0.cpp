@@ -22,22 +22,20 @@ tchwindow0::~tchwindow0()
     //delete tchWindow; tchWindow = nullptr;
 }
 
-QString tchwindow0::username()
-{
-    QString picked = ui->comboBox->currentText();
-    return picked;
-}
-
 void tchwindow0::on_select_button_clicked()
 {
 
     hide();
-    QString picked = ui->comboBox->currentText();
+    picked = ui->comboBox->currentText();
     tchWindow = new tchwindow;
     qDebug()<<picked;
     tchWindow -> show();
 }
 
+QString tchwindow0::username()
+{
+    return picked;
+}
 
 void tchwindow0::on_quit_button_clicked()
 {

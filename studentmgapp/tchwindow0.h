@@ -17,6 +17,7 @@ public:
     explicit tchwindow0(QWidget *parent = nullptr);
     ~tchwindow0();
     QString username();
+    QString picked;
 
 private slots:
     void on_select_button_clicked();
