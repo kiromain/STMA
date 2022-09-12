@@ -4,7 +4,6 @@
 #include <QWidget>
 #include <QString>
 
-
 namespace Ui {
 class tchwindow0;
 }
