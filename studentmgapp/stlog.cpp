@@ -3,6 +3,7 @@
 #include <QString>
 #include <QMessageBox>
 #include "mainwindow.h"
+#include <QDebug>
 
 MainWindow *mainwindow1;
 
@@ -18,18 +19,27 @@ stlog::~stlog()
     delete ui;
 }
 
+
+
 void stlog::on_pushButton_clicked()
 {
-    QString username = ui->lineEdit_stuser->text();
+    username1 = ui->lineEdit_stuser->text();
     QString password = ui->LineEdit_stpass->text();
 
-    if(username == "test" && password == "test"){
+    if(username1 == "kiromain" && password == "kiromain"){
         hide();
         stWindow = new stwindow;
         stWindow -> show();
     }else{
         QMessageBox::warning(this,"Login","Username or password is incorrect");
     }
+    qDebug()<<username1;
+}
+
+QString stlog::username()
+{
+    username1 = ui->lineEdit_stuser->text();
+    return username1;
 }
 
 

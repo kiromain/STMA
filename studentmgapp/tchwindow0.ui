@@ -42,21 +42,6 @@
          <string>kiromain</string>
         </property>
        </item>
-       <item>
-        <property name="text">
-         <string>mikro</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>logitech</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>asus</string>
-        </property>
-       </item>
       </widget>
      </item>
      <item>

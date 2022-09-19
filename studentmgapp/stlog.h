@@ -15,6 +15,8 @@ class stlog : public QDialog
 public:
     explicit stlog(QWidget *parent = nullptr);
     ~stlog();
+    QString username();
+    QString username1;
 
 private slots:
     void on_pushButton_clicked();

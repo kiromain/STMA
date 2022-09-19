@@ -17,7 +17,7 @@ tchwindow::tchwindow(QWidget *parent) :
     ui(new Ui::tchwindow)
 {
     ui->setupUi(this);
-    username = new tchwindow0();
+
     tchWindow0 = new tchwindow0();
 }
 
@@ -52,7 +52,7 @@ void tchwindow::on_save_button_clicked()
 
 void tchwindow::on_saveas_button_clicked()
 {
-    //username2 = username->username();
+    username2 = username->username();
     qDebug()<<username2;
 
     QDir dir(username2);
@@ -85,8 +85,8 @@ void tchwindow::on_saveas_button_clicked()
 
 void tchwindow::on_open_button_clicked()
 {
-    //username = new tchwindow0;
-    //QString username2 = username->username();
+    username = new tchwindow0;
+    QString username2 = username->username();
     qDebug()<<username2;
 
     QDir dir(username2);
@@ -114,7 +114,7 @@ void tchwindow::on_open_button_clicked()
 
 void tchwindow::on_edit_button_clicked()
 {
-    //username = new tchwindow0;
+    username = new tchwindow0;
     username2 = username->username();
     qDebug()<<username2;
     ui->textEdit->undo();

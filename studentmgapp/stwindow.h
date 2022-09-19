@@ -18,6 +18,8 @@ public:
 private slots:
     void on_quit_button_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::stwindow *ui;
 };

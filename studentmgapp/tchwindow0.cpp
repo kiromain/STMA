@@ -26,14 +26,13 @@ void tchwindow0::on_select_button_clicked()
 {
 
     hide();
-    picked = ui->comboBox->currentText();
     tchWindow = new tchwindow;
-    qDebug()<<picked;
     tchWindow -> show();
 }
 
 QString tchwindow0::username()
 {
+    picked = ui->comboBox->currentText();
     return picked;
 }
 
