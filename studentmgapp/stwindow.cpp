@@ -1,11 +1,13 @@
 #include "stwindow.h"
 #include "ui_stwindow.h"
 #include "mainwindow.h"
-#include "stlog.h"
 #include <QDebug>
+#include <QDir>
+#include <QMessageBox>
+#include <QFileDialog>
+#include <QTextStream>
 
 MainWindow *mainwindow3;
-stlog *username;
 
 stwindow::stwindow(QWidget *parent) :
     QDialog(parent),
@@ -29,8 +31,31 @@ void stwindow::on_quit_button_clicked()
 
 void stwindow::on_pushButton_clicked()
 {
-    username = new stlog;
-    QString username1 = username->username();
-    qDebug()<<username1;
+    QDir dir("kiromain");
+    foreach (QFileInfo var, dir.drives()) {
+        ui->comboBox->addItem("kiromain");
+    }
+    foreach(QFileInfo var, dir.entryInfoList()){
+        ui->listWidget->addItem(var.fileName());
+    }
+}
+
+
+void stwindow::on_pushButton_2_clicked()
+{
+    QString selected = ui->listWidget->currentItem()->text();
+
+    QDir dir("");
+    QString folder_path = dir.absoluteFilePath("kiromain");
+
+    QString file_path = folder_path + "/"+ selected;
+
+    QFile file(file_path);
+    QTextStream in(&file);
+    QString mText = in.readAll();
+
+    file.close();
+    qDebug()<<file_path;
+
 }
 

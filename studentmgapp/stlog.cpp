@@ -19,11 +19,9 @@ stlog::~stlog()
     delete ui;
 }
 
-
-
 void stlog::on_pushButton_clicked()
 {
-    username1 = ui->lineEdit_stuser->text();
+    QString username1 = ui->lineEdit_stuser->text();
     QString password = ui->LineEdit_stpass->text();
 
     if(username1 == "kiromain" && password == "kiromain"){
@@ -33,13 +31,6 @@ void stlog::on_pushButton_clicked()
     }else{
         QMessageBox::warning(this,"Login","Username or password is incorrect");
     }
-    qDebug()<<username1;
-}
-
-QString stlog::username()
-{
-    username1 = ui->lineEdit_stuser->text();
-    return username1;
 }
 
 
