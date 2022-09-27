@@ -49,10 +49,12 @@ void stwindow::on_pushButton_2_clicked()
     QString folder_path = dir.absoluteFilePath("kiromain");
 
     QString file_path = folder_path + "/"+ selected;
-
-    QFile file(file_path);
-    QTextStream in(&file);
-    QString mText = in.readAll();
+    QFileDialog::getOpenFileName(this,tr("Open Document"),file_path,
+                                 tr("Document files (*.doc *.txt);;All files (*.*)"),
+                                                                     0, QFileDialog::DontUseNativeDialog  );
+    QFile file(selected);
+    //QTextStream in(&file);
+    //QString mText = in.readAll();
 
     file.close();
     qDebug()<<file_path;
