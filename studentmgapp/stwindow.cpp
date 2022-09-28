@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QTextStream>
+#include <QFile>
 
 MainWindow *mainwindow3;
 
@@ -49,15 +50,16 @@ void stwindow::on_pushButton_2_clicked()
     QString folder_path = dir.absoluteFilePath("kiromain");
 
     QString file_path = folder_path + "/"+ selected;
-    QFileDialog::getOpenFileName(this,tr("Open Document"),file_path,
-                                 tr("Document files (*.doc *.txt);;All files (*.*)"),
-                                                                     0, QFileDialog::DontUseNativeDialog  );
-    QFile file(selected);
+
+    QFile file(file_path);
+    if(!file.open(QIODevice::ReadOnly))
+    {
+        qDebug()<<selected;
+    }
     //QTextStream in(&file);
     //QString mText = in.readAll();
 
     file.close();
-    qDebug()<<file_path;
 
 }
 

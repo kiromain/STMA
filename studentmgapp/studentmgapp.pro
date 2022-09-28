@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    stdialog.cpp \
     stlog.cpp \
     stwindow.cpp \
     tchlog.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
 
 HEADERS += \
     mainwindow.h \
+    stdialog.h \
     stlog.h \
     stwindow.h \
     tchlog.h \
@@ -27,6 +29,7 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui \
+    stdialog.ui \
     stlog.ui \
     stwindow.ui \
     tchlog.ui \
